@@ -1,13 +1,17 @@
+---
 language: python
 
-python:
-  - "2.7"
+python: "2.7"
+
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq python-apt python-pycurl
 
 install:
   - pip install ansible
 
 script:
-  - ansible-playbook -i ansible/tests/ansible.inventory ansible/playbook.yml
+  - ansible-playbook -i ansible/tests/ansible.inventory --connection=local --sudo -vvvv ansible/playbook.yml
 
 notifications:
   email:
