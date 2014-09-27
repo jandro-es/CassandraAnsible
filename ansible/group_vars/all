@@ -1,0 +1,13 @@
+---
+
+# Cassandra node configuration values
+cluster_name: test_cluster
+seeds: 10.0.0.10
+listen_address: localhost
+
+# JVM configuration
+
+# 1/2 system memory recommended
+MAX_HEAP_SIZE: 1GB
+# 1/4 MAX_HEAP_SIZE recommended
+HEAP_NEWSIZE: 256MB

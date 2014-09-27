@@ -1,0 +1,29 @@
+---
+
+- name: Adds Cassandra's repository
+  apt_repository: repo='deb http://www.apache.org/dist/cassandra/debian 20x main' state=present
+  tags: Cassandra
+
+- name: Adds the key for Cassandra's repository
+  apt_key: keyserver=pgp.mit.edu id=F758CE318D77295D
+  tags: Cassandra
+
+- name: Adds other needed keys
+  apt_key: keyserver=pgp.mit.edu id=2B5C1B00
+  tags: Cassandra
+
+- name: Installs Cassandra
+  apt: name=cassandra state=present update_cache=yes
+  tags: Cassandra
+
+- name: Creates Cassandra's configuration file
+  template: src=cassandra.j2 dest=/etc/cassandra/cassandra.yml
+  tags: Cassandra
+
+- name: Creates Cassandra's JVM Tunning file
+  template: src=cassandra-env.j2 dest=/etc/cassandra/cassandra-env.sh
+  tags: Cassandra
+
+- name: Restarts Cassandra
+  service: name=cassandra state=restarted
+  tags: Cassandra

@@ -1,0 +1,17 @@
+---
+
+- name: Adds datastax repository for opscenter
+  apt_repository: repo='deb http://debian.datastax.com/community stable main' state=present
+  tags: OpsCenter
+
+- name: Adds the key for the repository
+  apt_key: url=http://debian.datastax.com/debian/repo_key state=present
+  tags: OpsCenter
+
+- name: Installs Opscenter
+  apt: name=opscenter state=present update_cache=yes
+  tags: OpsCenter
+
+- name: Starts Opscenter
+  service: name=opscenterd state=started
+  tags: OpsCenter

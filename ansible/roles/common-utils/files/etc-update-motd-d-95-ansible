@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo
+echo " ****************************************************************************"
+echo " * This is a development box configured using Ansible"
+echo
+echo " * This box is intented for development of Cassandra backed applications"
+echo
+echo
+echo " * Playbook by: Alejandro Barros Cuetos jandrob1978@gmail.com"
+echo " ***************************************************************************"
+echo
+echo
+echo
+echo

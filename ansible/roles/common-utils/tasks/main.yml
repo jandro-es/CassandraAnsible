@@ -1,0 +1,36 @@
+---
+
+- name: Update system dist files
+  action: apt update_cache=yes
+  tags: common-utils
+
+- name: Install several packages needed and utilities
+  action: apt pkg={{ item }} state=installed
+  tags: common-utils
+  with_items:
+    - htop
+    - vim
+    - python-pip
+    - curl
+    - git
+    - unzip
+    - python-software-properties
+
+- name: Message of the day
+  action: copy src=etc-update-motd-d-95-ansible dest=/etc/update-motd.d/95-ansible mode=755
+  tags: common-util
+
+- name: Add JRE ppa
+  apt_repository: repo=ppa:webupd8team/java state=present
+  tags: oracle-java-7
+
+- name: Automatically select the Oracle License
+  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+  tags: oracle-java-7
+
+- name: Install JRE
+  apt: pkg=oracle-java7-installer state=latest update-cache=yes force=yes
+  tags: oracle-java-7
+
+
+
