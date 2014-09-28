@@ -6,7 +6,7 @@ python: "2.7"
 before_install:
   - sudo apt-get update 
   - sudo apt-get install python-software-properties
-  - sudo add-apt-repository ppa:rquillo/ansible
+  - sudo FORCE_ADD_APT_REPOSITORY=1 add-apt-repository ppa:rquillo/ansible
   - sudo apt-get update
 
 install:
