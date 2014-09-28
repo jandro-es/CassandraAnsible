@@ -5,15 +5,15 @@ python: "2.7"
 
 before_install:
  - sudo apt-get update 
- - sudo apt-get install python-apt
- - sudo apt-get install python-pycurl
- - sudo apt-get install python-software-properties
+ #- sudo apt-get install -qq python-apt
+ #- sudo apt-get install -qq python-pycurl
+ #- sudo apt-get install -qq python-software-properties
 
 install:
   - pip install ansible
 
 script:
-  - ansible-playbook -i ansible/tests/ansible.inventory --sudo -vvvv ansible/playbook.yml
+  - ansible-playbook -i ansible/tests/ansible.inventory --connection=local --sudo -vvvv ansible/playbook.yml
 
 notifications:
   email:
