@@ -13,6 +13,7 @@ install:
   - pip install ansible
 
 script:
+  - ansible --version
   - ansible-playbook -i ansible/tests/ansible.inventory --connection=local --sudo -vvvv ansible/playbook.yml
 
 notifications:
