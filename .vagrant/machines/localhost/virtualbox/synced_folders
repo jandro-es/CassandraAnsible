@@ -1,1 +1,0 @@
-{"nfs":{"/var/www/local.cassandra":{"type":"nfs","guestpath":"/var/www/local.cassandra","hostpath":"/Users/jandro/Projects/Cassandra","disabled":false,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"3905875079"}},"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/jandro/Projects/Cassandra","disabled":false}}}

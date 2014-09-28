@@ -13,8 +13,8 @@ install:
   - sudo apt-get install ansible
 
 script:
-  - ansible --version
-  - ansible-playbook -i ansible/tests/ansible.inventory --connection=local --sudo -vvvv ansible/playbook.yml
+  - sudo ansible --version
+  - sudo ansible-playbook -i ansible/tests/ansible.inventory --connection=local --sudo -vvvv ansible/playbook.yml
 
 notifications:
   email:
