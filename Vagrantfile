@@ -30,5 +30,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "ansible/playbook.yml"
     ansible.verbose = "v"
     ansible.host_key_checking = false
+    ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
   end
 end
